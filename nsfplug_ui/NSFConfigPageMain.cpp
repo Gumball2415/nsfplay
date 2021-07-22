@@ -52,7 +52,7 @@ NSFConfigPageMain::~NSFConfigPageMain()
 
 void NSFConfigPageMain::UpdateNSFPlayerConfig(bool b)
 {
-  int rate[] = {8000,11025,16000,22050,32000,44100,48000,88200,96000,0x7FFFFFFF};
+  int rate[] = {8000,11025,16000,22050,32000,44100,48000,88200,96000,1789772,0x7FFFFFFF};
 
   NSFDialog::UpdateNSFPlayerConfig(b);
 
