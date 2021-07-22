@@ -183,7 +183,7 @@ if not exist "hlp\nsfplug.chm" goto :HelpError
 copy "hlp\nsfplug.chm" "$(OutDir)nsfplug.chm"
 goto :HelpDone
 :HelpError
-echo hlp\nsfplug.hhp(1) : error:ヘルプ ファイルを作成中に問題が発生しました。
+echo hlp\nsfplug.hhp(1) : error:There was a problem creating the help file.
 echo.
 :HelpDone
 echo.
