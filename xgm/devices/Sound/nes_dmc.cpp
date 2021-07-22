@@ -444,7 +444,9 @@ namespace xgm
   void NES_DMC::InitializeTNDTable(double wt, double wn, double wd) {
 
     // volume adjusted by 0.95 based on empirical measurements
-    const double MASTER = 8192.0 * 0.95;
+    // MDFourier tests show that this seems to further deviate from hardware
+    // more details at (link)
+    const double MASTER = 8192.0;// *0.95;
     // truthfully, the nonlinear curve does not appear to match well
     // with my tests. Do more testing of the APU/DMC DAC later.
     // this value keeps the triangle consistent with measured levels,
@@ -478,9 +480,8 @@ namespace xgm
   {
     int i;
     mask = 0;
-
-    InitializeTNDTable(8227,12241,22638);
-
+    // manually adjusted until the levels match with MDFourier recording https://archive.org/details/mdfourier_nes_dc
+    InitializeTNDTable(9118,17935,28338);
     counter[0] = 0;
     counter[1] = 0;
     counter[2] = 0;
@@ -562,7 +563,7 @@ namespace xgm
     {
       option[id] = val;
       if(id==OPT_NONLINEAR_MIXER)
-        InitializeTNDTable(8227,12241,22638);
+        InitializeTNDTable(9118,17935,28338);
     }
   }
 
